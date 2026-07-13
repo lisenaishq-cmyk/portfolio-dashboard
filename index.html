@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>四季豆组合 · 近一年收益 vs 沪深300 偏离分析</title>
-<script src="chart.umd.min.js?v=202607131857"></script>
+<script src="chart.umd.min.js?v=202607131905"></script>
 <style>
   :root {
     --bg:#f5f7fa; --card:#fff; --ink:#1a2433; --sub:#6b7685; --line:#e6eaf0;
@@ -22,6 +22,10 @@
   .kpi .v { font-size:21px; font-weight:700; }
   .v.asset { color:var(--up); } .v.loss { color:var(--down); }
   .v.warn { color:var(--gold); } .v.info { color:var(--blue); }
+  .kpi.big .v { font-size:26px; }
+  .badge { font-size:11px; font-weight:600; padding:1px 6px; border-radius:6px; margin-left:6px; vertical-align:middle; }
+  .badge.asset { background:#fdecea; color:var(--up); }
+  .badge.loss { background:#eaf3ea; color:var(--down); }
   .panel { background:var(--card); border:1px solid var(--line); border-radius:14px;
     padding:18px 20px; margin-bottom:20px; }
   .panel h2 { font-size:16px; margin:0 0 4px; }
@@ -71,6 +75,26 @@
   </div>
 
   <div class="panel">
+    <h2>今日的看盘（2026-07-13）</h2>
+    <div class="sub">收盘后口径 · 当日对比前一交易日；累计对比组合起始（T0=2026-07-13）至当日。组合收益采用时间加权(TWR)，与沪深300直接可比；为价格收益，未含分红。</div>
+    <div class="kpis">
+      <div class="kpi big"><div class="l">当日盈亏（总资产）</div><div class="v loss">-¥8.5万</div></div>
+      <div class="kpi"><div class="l">当日总资产收益率</div><div class="v loss">-1.94%</div></div>
+      <div class="kpi"><div class="l">当日净资产收益率</div><div class="v loss">-3.39%</div></div>
+      <div class="kpi"><div class="l">沪深300当日</div><div class="v loss">-1.79%</div></div>
+      <div class="kpi"><div class="l">当日超额（组合−沪深300）</div><div class="v loss">-0.15% <span class="badge loss">跑输沪深300</span></div></div>
+    </div>
+    <div class="kpis" style="margin-top:12px;">
+      <div class="kpi"><div class="l">累计总资产收益率 (TWR)</div><div class="v loss">-18.39%</div></div>
+      <div class="kpi"><div class="l">累计净资产收益率 (TWR)</div><div class="v loss">-30.15%</div></div>
+      <div class="kpi"><div class="l">累计超额收益</div><div class="v loss">-35.26%</div></div>
+      <div class="kpi"><div class="l">当前总资产</div><div class="v info">¥432万</div></div>
+      <div class="kpi"><div class="l">当前净资产</div><div class="v info">¥290万</div></div>
+      <div class="kpi"><div class="l">当前融资负债</div><div class="v warn">¥150万</div></div>
+    </div>
+  </div>
+
+  <div class="panel">
     <h2>持仓总览（截至 2026-07-13）</h2>
     <div class="sub" style="margin-bottom:12px;">
       当前账户共 <b>60</b> 只标的，按 2026-07-13 最新收盘价计，
@@ -106,7 +130,7 @@
   </div>
 
   <div class="kpis">
-    <div class="kpi"><div class="l">总资产收益率 (TWR)</div><div class="v loss">-18.39%</div></div><div class="kpi"><div class="l">净资产收益率 (TWR)</div><div class="v loss">-30.15%</div></div><div class="kpi"><div class="l">沪深300近一年收益</div><div class="v asset">+16.87%</div></div><div class="kpi"><div class="l">超额收益 (总资产−沪深300)</div><div class="v loss">-35.26%</div></div><div class="kpi"><div class="l">净资产最大回撤</div><div class="v loss">-40.4%</div></div><div class="kpi"><div class="l">净资产 Beta (对沪深300)</div><div class="v info">0.92</div></div><div class="kpi"><div class="l">跟踪误差(总资产·年化)</div><div class="v warn">14.8%</div></div><div class="kpi"><div class="l">信息比率(总资产)</div><div class="v loss">-2.43</div></div>
+    <div class="kpi"><div class="l">组合总资产收益率 (TWR)</div><div class="v loss">-18.39%</div></div><div class="kpi"><div class="l">组合净资产收益率 (TWR)</div><div class="v loss">-30.15%</div></div><div class="kpi"><div class="l">沪深300近一年收益</div><div class="v asset">+16.87%</div></div><div class="kpi"><div class="l">组合超额收益 (总资产−沪深300)</div><div class="v loss">-35.26%</div></div><div class="kpi"><div class="l">净资产最大回撤</div><div class="v loss">-40.4%</div></div><div class="kpi"><div class="l">净资产 Beta (对沪深300)</div><div class="v info">0.92</div></div><div class="kpi"><div class="l">跟踪误差(总资产·年化)</div><div class="v warn">14.8%</div></div><div class="kpi"><div class="l">信息比率(总资产)</div><div class="v loss">-2.43</div></div>
   </div>
 
   <div class="panel">
@@ -150,7 +174,7 @@
 
     <div class="panel">
     <h2>⑦ 持仓周报（机构视角）· 自然周（周一~周五）2026-07-06 ~ 2026-07-10（5 个交易日，最近已完成日历周）</h2>
-    <div class="sub" style="margin-bottom:12px;">机构视角 · 客观复盘，不含主观判断。生成于 2026-07-13 18:57。</div>
+    <div class="sub" style="margin-bottom:12px;">机构视角 · 客观复盘，不含主观判断。生成于 2026-07-13 19:05。</div>
     <div class="kpis" style="margin-bottom:16px;"><div class="kpi"><div class="l">总资产周收益</div><div class="v loss">-2.01%</div></div><div class="kpi"><div class="l">净资产周收益</div><div class="v loss">-3.51%</div></div><div class="kpi"><div class="l">沪深300周收益</div><div class="v loss">-1.26%</div></div><div class="kpi"><div class="l">超额(总资产−沪深300)</div><div class="v loss">-0.75%</div></div><div class="kpi"><div class="l">周度相对波动(跟踪误差)</div><div class="v warn">35.83%(年化)</div></div><div class="kpi"><div class="l">周度信息比率</div><div class="v loss">-0.09</div></div><div class="kpi"><div class="l">组合周度最大回撤</div><div class="v loss">-3.37%</div></div><div class="kpi"><div class="l">前五大持仓合计权重</div><div class="v warn">55.4%</div></div></div>
     <div class="report-body">观察窗口（2026-07-06 至 2026-07-10，5 个交易日）内，组合总资产录得 -2.01%，净资产（杠杆后权益）录得 -3.51%；同期沪深300为 -1.26%，组合相对宽基基准-0.75 个百分点、跑输基准。窗口内组合日度波动率为 1.44%，基准为 1.70%；相对基准的跟踪误差年化约 35.83%，周度信息比率 -0.09。信息比率为负表明：在窗口内，主动暴露未产生正向风险补偿，单位主动风险的边际回报为负。组合周度最大回撤 -3.37%，出现在 2026-07-10 00:00:00（当日相对基准偏离 +3.37%）。持仓结构层面，截至周末单一最大持仓为 迈瑞医疗（权重 24.9%）；前五大持仓合计权重 55.4%。前五大权重超过 50%，集中度处于偏高区间，单一标的事件风险未被有效分散。成分股层面：本周主要负贡献来自 八方股份(-0.71%)、精工钢构(-0.30%)、特变电工(-0.25%)；主要正贡献来自 迈瑞医疗(+0.17%)、石药创新(+0.12%)、莱克电气(+0.09%)。结论：本周组合延续了近一年'跑输基准、高集中度、低 Beta'的结构性特征，未见拐点信号。在主动 alpha 持续为负的情形下，杠杆（当前 1.52 倍）继续放大权益端回撤。若以绝对收益为目标，应继续执行降杠杆与单一标的集中度压降；若维持当前框架，则需将相对基准的系统性跑输视为常态并接受。</div>
     <div class="grid2" style="margin-top:14px;">

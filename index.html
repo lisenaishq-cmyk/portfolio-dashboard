@@ -38,6 +38,7 @@
   .side.div { color:var(--blue); } .side.dep { color:var(--gold); }
   .side.wtd { color:var(--sub); } .side.oth { color:var(--ink); }
   .tbl-scroll { overflow-x:auto; }
+  .chart-box { margin-top:8px; }
   .tbl-sec7 { table-layout:fixed; width:100%; }
   .tbl-sec7 col.c0 { width:44%; } .tbl-sec7 col.c1 { width:28%; } .tbl-sec7 col.c2 { width:28%; }
   .tbl-sec7 th, .tbl-sec7 td { white-space:nowrap; }
@@ -141,22 +142,15 @@
 
   <div class="panel">
     <h2>⑥ 前 15 大重仓股（按持仓权重 · 自动随持仓变化）</h2>
-    <div class="tbl-scroll" style="margin-top:14px;">
-    <div class="desc">按 2026-07-10 最新收盘价计算的持仓权重降序排列的前 15 大重仓股；权重随真实持仓变化每日自动更新。前 3 大以红色高亮显示集中度。</div>
+    <div class="chart-box">
+    <div class="desc">按 2026-07-10 最新收盘价计算的持仓权重降序排列的前 15 大重仓股；权重随真实持仓每日自动更新，前 3 大以红色高亮显示集中度。悬停柱条可见每只的权重与市值。</div>
     <canvas id="topChart"></canvas>
-    <table class="tbl-sec7">
-      <colgroup><col class="c0"><col class="c1"><col class="c2"><col class="c3"></colgroup>
-      <thead><tr><th>排名</th><th>代码</th><th>名称</th><th class="num">权重</th><th class="num">市值(万)</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>300760</td><td>迈瑞医疗</td><td class="num">24.75%</td><td class="num">109.0</td></tr><tr><td>2</td><td>600496</td><td>精工钢构</td><td class="num">12.49%</td><td class="num">55.0</td></tr><tr><td>3</td><td>603489</td><td>八方股份</td><td class="num">7.90%</td><td class="num">34.8</td></tr><tr><td>4</td><td>002508</td><td>老板电器</td><td class="num">6.40%</td><td class="num">28.2</td></tr><tr><td>5</td><td>600089</td><td>特变电工</td><td class="num">4.19%</td><td class="num">18.5</td></tr><tr><td>6</td><td>600585</td><td>海螺水泥</td><td class="num">2.56%</td><td class="num">11.3</td></tr><tr><td>7</td><td>300765</td><td>石药创新</td><td class="num">2.20%</td><td class="num">9.7</td></tr><tr><td>8</td><td>600196</td><td>复星医药</td><td class="num">2.18%</td><td class="num">9.6</td></tr><tr><td>9</td><td>002007</td><td>华兰生物</td><td class="num">1.86%</td><td class="num">8.2</td></tr><tr><td>10</td><td>002985</td><td>北摩高科</td><td class="num">1.80%</td><td class="num">7.9</td></tr><tr><td>11</td><td>600298</td><td>安琪酵母</td><td class="num">1.66%</td><td class="num">7.3</td></tr><tr><td>12</td><td>601012</td><td>隆基绿能</td><td class="num">1.59%</td><td class="num">7.0</td></tr><tr><td>13</td><td>300012</td><td>华测检测</td><td class="num">1.57%</td><td class="num">6.9</td></tr><tr><td>14</td><td>600132</td><td>重庆啤酒</td><td class="num">1.52%</td><td class="num">6.7</td></tr><tr><td>15</td><td>688278</td><td>特宝生物</td><td class="num">1.42%</td><td class="num">6.3</td></tr>
-      </tbody>
-    </table>
     </div>
   </div>
 
     <div class="panel">
     <h2>⑦ 持仓周报（机构视角）· 自然周（周一~周五）2026-07-06 ~ 2026-07-10（5 个交易日，最近已完成日历周）</h2>
-    <div class="sub" style="margin-bottom:12px;">机构视角 · 客观复盘，不含主观判断。生成于 2026-07-13 08:42。</div>
+    <div class="sub" style="margin-bottom:12px;">机构视角 · 客观复盘，不含主观判断。生成于 2026-07-13 08:48。</div>
     <div class="kpis" style="margin-bottom:16px;"><div class="kpi"><div class="l">总资产周收益</div><div class="v loss">-2.01%</div></div><div class="kpi"><div class="l">净资产周收益</div><div class="v loss">-3.50%</div></div><div class="kpi"><div class="l">沪深300周收益</div><div class="v loss">-1.26%</div></div><div class="kpi"><div class="l">超额(总资产−沪深300)</div><div class="v loss">-0.75%</div></div><div class="kpi"><div class="l">周度相对波动(跟踪误差)</div><div class="v warn">35.83%(年化)</div></div><div class="kpi"><div class="l">周度信息比率</div><div class="v loss">-0.09</div></div><div class="kpi"><div class="l">组合周度最大回撤</div><div class="v loss">-3.37%</div></div><div class="kpi"><div class="l">前五大持仓合计权重</div><div class="v warn">55.7%</div></div></div>
     <div class="report-body">观察窗口（2026-07-06 至 2026-07-10，5 个交易日）内，组合总资产录得 -2.01%，净资产（杠杆后权益）录得 -3.50%；同期沪深300为 -1.26%，组合相对宽基基准-0.75 个百分点、跑输基准。窗口内组合日度波动率为 1.44%，基准为 1.70%；相对基准的跟踪误差年化约 35.83%，周度信息比率 -0.09。信息比率为负表明：在窗口内，主动暴露未产生正向风险补偿，单位主动风险的边际回报为负。组合周度最大回撤 -3.37%，出现在 2026-07-10 00:00:00（当日相对基准偏离 +3.37%）。持仓结构层面，截至周末单一最大持仓为 迈瑞医疗（权重 24.8%）；前五大持仓合计权重 55.7%。前五大权重超过 50%，集中度处于偏高区间，单一标的事件风险未被有效分散。成分股层面：本周主要负贡献来自 八方股份(-0.74%)、精工钢构(-0.30%)、特变电工(-0.25%)；主要正贡献来自 迈瑞医疗(+0.17%)、石药创新(+0.12%)、莱克电气(+0.10%)。结论：本周组合延续了近一年'跑输基准、高集中度、低 Beta'的结构性特征，未见拐点信号。在主动 alpha 持续为负的情形下，杠杆（当前 1.52 倍）继续放大权益端回撤。若以绝对收益为目标，应继续执行降杠杆与单一标的集中度压降；若维持当前框架，则需将相对基准的系统性跑输视为常态并接受。</div>
     <div class="grid2" style="margin-top:14px;">
@@ -231,7 +225,8 @@ function hbar(canvas, items, colorFn) {
     options:{ indexAxis:'y', responsive:true,
       plugins:{ legend:{display:false},
         tooltip:{ callbacks:{ label:c=>{ const i=items[c.dataIndex];
-          return `贡献 ${c.parsed.x.toFixed(3)}% ｜ 权重 ${i.w0}%` + (i.ret!=null ? ` ｜ 个股 ${i.ret>0?'+':''}${i.ret}%` : ''); } } } },
+          const s = (i.mv!=null) ? `权重 ${c.parsed.x.toFixed(2)}% ｜ 市值 ¥${(i.mv/10000).toFixed(1)}万` : `贡献 ${c.parsed.x.toFixed(3)}% ｜ 权重 ${i.w0}%`;
+          return s + (i.ret!=null ? ` ｜ 个股 ${i.ret>0?'+':''}${i.ret}%` : ''); } } } },
       scales:{ x:{ ticks:{ callback:v=>v+'%', font:{size:10}, color:'#6b7685' }, grid:{color:'#eef2f7'} },
         y:{ ticks:{font:{size:11}}, grid:{display:false} } } } });
 }

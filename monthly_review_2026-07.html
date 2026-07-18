@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>月度组合审视 · 2026年7月</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+       background:#f5f6fa; color:#2c3e50; line-height:1.6; }
+.container { max-width:1200px; margin:0 auto; padding:20px; }
+.header { background:linear-gradient(135deg,#1a1a2e,#16213e); color:#fff; padding:30px; border-radius:12px; margin-bottom:24px; }
+.header h1 { font-size:24px; margin-bottom:8px; }
+.header .sub { font-size:14px; color:#a0aec0; }
+.header .meta { float:right; text-align:right; font-size:13px; color:#a0aec0; }
+.section { background:#fff; border-radius:10px; padding:24px; margin-bottom:20px; box-shadow:0 1px 3px rgba(0,0,0,0.08); }
+.section h2 { font-size:18px; border-left:4px solid #3b82f6; padding-left:12px; margin-bottom:16px; color:#1e293b; }
+.metrics-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:16px; }
+.metric-card { background:#f8fafc; border-radius:8px; padding:14px; text-align:center; }
+.metric-card .label { font-size:11px; color:#64748b; margin-bottom:4px; }
+.metric-card .value { font-size:20px; font-weight:700; }
+.metric-card .sub { font-size:11px; color:#94a3b8; margin-top:2px; }
+.pos { color:#27ae60; } .neg { color:#e74c3c; } .neutral { color:#64748b; }
+.chart-box { width:100%; height:320px; margin:16px 0; }
+.chart-box.half { width:48%; display:inline-block; }
+.chart-box.half.right { float:right; }
+.insight { background:#eff6ff; border-left:4px solid #3b82f6; padding:14px 18px; border-radius:0 8px 8px 0; margin:12px 0; font-size:14px; }
+.insight.warn { background:#fef3c7; border-left-color:#f59e0b; }
+.insight.danger { background:#fee2e2; border-left-color:#ef4444; }
+table { width:100%; border-collapse:collapse; margin:12px 0; font-size:13px; }
+th { background:#f1f5f9; padding:8px 12px; text-align:left; font-weight:600; color:#475569; border-bottom:2px solid #e2e8f0; }
+td { padding:8px 12px; border-bottom:1px solid #f1f5f9; }
+tr:hover td { background:#f8fafc; }
+.stock-row { display:flex; flex-wrap:wrap; gap:4px; }
+.clearfix::after { content:""; display:table; clear:both; }
+.footer { text-align:center; color:#94a3b8; font-size:12px; padding:20px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <div class="meta">
+    生成时间：2026-07-18 21:34<br>
+    数据截止：2026-07-17<br>
+    总资产：442万 | 净资产：292万
+  </div>
+  <h1>月度组合审视报告</h1>
+  <div class="sub">2026年7月 · 顶级投行框架 · 四季豆组合</div>
+</div>
+
+<!-- ===== I. 执行摘要 ===== -->
+<div class="section">
+  <h2>I. 执行摘要</h2>
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="label">本月总资产</div>
+      <div class="value pos">+3.58%</div>
+      <div class="sub">沪深300 -9.04%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">本月净资产</div>
+      <div class="value pos">+5.36%</div>
+      <div class="sub">杠杆1.51倍</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">本月超额</div>
+      <div class="value pos">+12.62%</div>
+      <div class="sub">胜率69%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">滚动年总资产</div>
+      <div class="value neg">-18.6%</div>
+      <div class="sub">沪深300 +12.3%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">滚动年超额</div>
+      <div class="value neg">-30.8%</div>
+      <div class="sub">IR=-2.04</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">年化波动率</div>
+      <div class="value">17.0%</div>
+      <div class="sub">最大回撤-28.4%</div>
+    </div>
+  </div>
+  <div class="insight">
+    <b>本月概要：</b>2026年7月组合总资产 <b class="pos">+3.58%</b>，
+    沪深300 <b class="neg">-9.04%</b>，
+    超额 <b class="pos">+12.62%</b>（跑赢大盘）。
+    杠杆后净资产 +5.36%，放大了收益。
+    滚动一年看，总资产-18.6% vs 沪深300 +12.3%，超额-30.8%，
+    Beta=0.58、跟踪误差15.7%、信息比率-2.04。
+  </div>
+</div>
+
+<!-- ===== II. 历史月度业绩 ===== -->
+<div class="section">
+  <h2>II. 历史月度业绩回顾</h2>
+  <div class="chart-box"><canvas id="monthlyChart"></canvas></div>
+  <div class="insight">
+    <b>月度收益散点图（下方）</b>揭示了组合与大盘的联动关系：斜率=组合对大盘的敏感度（beta），
+    点离45度线的距离=该月alpha。散点在45度线下方=跑输，上方=跑赢。
+  </div>
+  <div class="chart-box"><canvas id="scatterChart"></canvas></div>
+</div>
+
+<!-- ===== III. 业绩归因 ===== -->
+<div class="section">
+  <h2>III. 业绩归因</h2>
+  <div class="chart-box half"><canvas id="sectorContribChart"></canvas></div>
+  <div class="chart-box half right"><canvas id="sectorDistChart"></canvas></div>
+  <div class="clearfix"></div>
+  <table>
+    <tr><th>板块</th><th>期初权重</th><th>区间贡献</th><th>板块</th><th>期初权重</th><th>区间贡献</th></tr>
+    <tr><td>医疗器械</td><td>31.9%</td><td class="neg">-9.83%</td><td>小家电</td><td>2.8%</td><td class="neg">-0.41%</td></tr><tr><td>医药</td><td>7.2%</td><td class="neg">-1.50%</td><td>生物制药</td><td>1.6%</td><td class="neg">-0.39%</td></tr><tr><td>厨电</td><td>6.5%</td><td class="neg">-1.13%</td><td>血制品</td><td>1.9%</td><td class="neg">-0.35%</td></tr><tr><td>纺织代工</td><td>2.0%</td><td class="neg">-0.79%</td><td>啤酒</td><td>1.6%</td><td class="neg">-0.35%</td></tr><tr><td>水泥</td><td>2.7%</td><td class="neg">-0.56%</td><td>动物保健</td><td>1.5%</td><td class="neg">-0.29%</td></tr><tr><td>汽车</td><td>1.8%</td><td class="neg">-0.56%</td><td>军工</td><td>1.6%</td><td class="neg">-0.28%</td></tr><tr><td>电驱系统</td><td>6.9%</td><td class="neg">-0.53%</td><td>生态园林</td><td>0.5%</td><td class="neg">-0.23%</td></tr><tr><td>互联网</td><td>1.4%</td><td class="neg">-0.51%</td><td>房地产</td><td>0.7%</td><td class="neg">-0.21%</td></tr><tr><td>光伏</td><td>1.7%</td><td class="neg">-0.47%</td><td>环保</td><td>0.9%</td><td class="neg">-0.21%</td></tr><tr><td>钢结构</td><td>10.4%</td><td class="neg">-0.47%</td><td>燃气</td><td>0.4%</td><td class="neg">-0.13%</td></tr>
+  </table>
+  <h3 style="margin:16px 0 8px;font-size:15px;color:#475569;">最大拖累 TOP5</h3>
+  <div class="stock-row"><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
+            <div style="font-weight:700;color:#e74c3c;">迈瑞医疗</div>
+            <div style="color:#888;">医疗器械</div>
+            <div>权重 30.5% | 收益 -31.2%</div>
+            <div style="font-weight:700;">贡献 -9.50%</div>
+        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
+            <div style="font-weight:700;color:#e74c3c;">老板电器</div>
+            <div style="color:#888;">厨电</div>
+            <div>权重 6.5% | 收益 -17.5%</div>
+            <div style="font-weight:700;">贡献 -1.13%</div>
+        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
+            <div style="font-weight:700;color:#e74c3c;">华利集团</div>
+            <div style="color:#888;">纺织代工</div>
+            <div>权重 2.0% | 收益 -39.9%</div>
+            <div style="font-weight:700;">贡献 -0.79%</div>
+        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
+            <div style="font-weight:700;color:#e74c3c;">石药创新</div>
+            <div style="color:#888;">医药</div>
+            <div>权重 2.5% | 收益 -29.1%</div>
+            <div style="font-weight:700;">贡献 -0.72%</div>
+        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
+            <div style="font-weight:700;color:#e74c3c;">海螺水泥</div>
+            <div style="color:#888;">水泥</div>
+            <div>权重 2.7% | 收益 -20.9%</div>
+            <div style="font-weight:700;">贡献 -0.56%</div>
+        </div></div>
+  <h3 style="margin:16px 0 8px;font-size:15px;color:#475569;">最大贡献 TOP5</h3>
+  <div class="stock-row"><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
+            <div style="font-weight:700;color:#27ae60;">特变电工</div>
+            <div style="color:#888;">电力设备</div>
+            <div>权重 2.1% | 收益 +52.2%</div>
+            <div style="font-weight:700;">贡献 +1.07%</div>
+        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
+            <div style="font-weight:700;color:#27ae60;">安琪酵母</div>
+            <div style="color:#888;">食品</div>
+            <div>权重 1.3% | 收益 +10.2%</div>
+            <div style="font-weight:700;">贡献 +0.13%</div>
+        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
+            <div style="font-weight:700;color:#27ae60;">华测检测</div>
+            <div style="color:#888;">检测服务</div>
+            <div>权重 1.1% | 收益 +9.7%</div>
+            <div style="font-weight:700;">贡献 +0.11%</div>
+        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
+            <div style="font-weight:700;color:#27ae60;">荣盛石化</div>
+            <div style="color:#888;">能源</div>
+            <div>权重 0.2% | 收益 +34.1%</div>
+            <div style="font-weight:700;">贡献 +0.07%</div>
+        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
+            <div style="font-weight:700;color:#27ae60;"> 宝丰能源</div>
+            <div style="color:#888;">能源</div>
+            <div>权重 0.2% | 收益 +36.5%</div>
+            <div style="font-weight:700;">贡献 +0.07%</div>
+        </div></div>
+</div>
+
+<!-- ===== IV. 风险仪表盘 ===== -->
+<div class="section">
+  <h2>IV. 风险仪表盘</h2>
+  <div class="metrics-grid">
+    <div class="metric-card"><div class="label">总资产Beta</div><div class="value">0.58</div></div>
+    <div class="metric-card"><div class="label">净资产Beta</div><div class="value">0.88</div></div>
+    <div class="metric-card"><div class="label">跟踪误差</div><div class="value">15.7%</div></div>
+    <div class="metric-card"><div class="label">信息比率</div><div class="value neg">-2.04</div></div>
+    <div class="metric-card"><div class="label">最大回撤</div><div class="value neg">-28.4%</div></div>
+    <div class="metric-card"><div class="label">95% VaR(日)</div><div class="value neg">-7.8万</div></div>
+  </div>
+  <div class="insight">
+    <b>Beta分解：</b>总资产Beta=0.58（低beta，对大盘上涨参与度不足），净资产Beta=0.88（杠杆放大后接近1）。
+    跟踪误差15.7%偏高，信息比率-2.04为负，主动管理显著失效。
+    95%置信度下日度VaR=-7.8万，意味着正常市场条件下单日亏损超此值的概率仅5%。
+  </div>
+</div>
+
+<!-- ===== V. 市场环境适应性分析（核心） ===== -->
+<div class="section">
+  <h2>V. 市场环境适应性分析 <span style="font-size:12px;color:#94a3b8;">— 什么情况跑赢？什么情况折戟？</span></h2>
+  <div class="chart-box"><canvas id="regimeChart"></canvas></div>
+  <table>
+    <tr><th>市场环境</th><th>样本天数</th><th>组合日均</th><th>沪深300日均</th><th>日均超额</th><th>胜率</th><th>regime-beta</th></tr>
+    <tr><td><b>大涨</b></td><td>47</td><td class="pos">+0.665%</td><td class="pos">+1.572%</td><td class="neg">-0.907%</td><td>13%</td><td>0.36</td></tr><tr><td><b>小涨</b></td><td>50</td><td class="pos">+0.428%</td><td class="pos">+0.604%</td><td class="neg">-0.175%</td><td>44%</td><td>0.59</td></tr><tr><td><b>平盘</b></td><td>67</td><td class="neg">-0.003%</td><td class="pos">+0.033%</td><td class="neg">-0.036%</td><td>46%</td><td>0.01</td></tr><tr><td><b>小跌</b></td><td>56</td><td class="neg">-0.566%</td><td class="neg">-0.589%</td><td class="pos">+0.023%</td><td>50%</td><td>1.41</td></tr><tr><td><b>大跌</b></td><td>33</td><td class="neg">-1.205%</td><td class="neg">-1.825%</td><td class="pos">+0.619%</td><td>61%</td><td>0.47</td></tr>
+  </table>
+  <div class="insight danger">
+    <b>核心发现：</b>组合在<b style='color:#27ae60'>大跌日</b>表现最好（日均超额 +0.62%，胜率 61%），在<b style='color:#e74c3c'>大涨日</b>表现最差（日均超额 -0.91%，胜率 13%）。
+  </div>
+  <div class="insight">
+    <b>涨跌非对称性：</b><b style='color:#e74c3c'>下跌更敏感</b>（跌beta=0.61 > 涨beta=0.40），大盘回调时组合跌幅放大。
+    这意味着大盘回调时需特别警惕组合的下行风险。
+  </div>
+  <div class="insight warn">
+    <b>策略适配性判断：</b>
+    组合Beta=0.58（偏低），
+    在<b>大盘蓝筹驱动的上涨行情</b>中结构性踏空；
+    。
+    当前组合本质是<b>低beta+高集中度+杠杆</b>结构，在指数行情中折戟、在个股alpha行情中才有机会跑赢。
+  </div>
+</div>
+
+<!-- ===== VI. 持仓结构审视 ===== -->
+<div class="section">
+  <h2>VI. 持仓结构审视</h2>
+  <div class="metrics-grid">
+    <div class="metric-card"><div class="label">持仓数量</div><div class="value">62</div></div>
+    <div class="metric-card"><div class="label">HHI集中度</div><div class="value">0.0986</div><div class="sub">偏高</div></div>
+    <div class="metric-card"><div class="label">前5集中度</div><div class="value">56%</div></div>
+    <div class="metric-card"><div class="label">前10集中度</div><div class="value">67%</div></div>
+    <div class="metric-card"><div class="label">板块数</div><div class="value">40</div></div>
+    <div class="metric-card"><div class="label">杠杆</div><div class="value">1.51x</div></div>
+  </div>
+  <div class="insight">
+    <b>结构特征：</b>组合持有62只标的，分布在40个板块，前5大持仓占比56%。
+    最大板块为「医疗器械」(27.2%)，
+    板块分散度尚可。
+    HHI=0.0986（偏高，单一标的集中度风险显著）。
+  </div>
+</div>
+
+<!-- ===== VII. 行动建议 ===== -->
+<div class="section">
+  <h2>VII. 行动建议</h2>
+  <div class="insight danger">
+    <b>1.</b> 组合持续大幅跑输沪深300，核心矛盾是<b>低beta+高集中度+杠杆放大</b>。短期优先：①降杠杆至1.2倍以内止血；②补充沪深300ETF修复beta暴露。<br><b>2.</b> 总资产Beta仅0.58，在大盘蓝筹行情中结构性踏空。若判断指数行情延续，至少配置15-20%仓位的宽基ETF。<br><b>3.</b> 下跌beta(0.61)显著高于上涨beta(0.40)，组合在大盘回调时跌幅更深。建议减配高波动个股、增配防御性资产。<br><b>4.</b> HHI=0.0986偏高，前5大持仓占56%。单一标的风险敞口过大，建议将单一标的上限压至10-15%。<br><b>5.</b> 杠杆1.51倍在主动alpha为负时是负贡献放大器。净资产端收益-31.0%远逊于总资产端-18.6%，降杠杆是最高优先级。
+  </div>
+</div>
+
+<div class="footer">
+  四季豆组合 · 月度审视报告 · 2026年7月 · 生成于2026-07-18 21:34<br>
+  数据口径：TWR时间加权收益率，已剔除银证转账与杠杆注入影响 | Beta/TE/IR基于日度收益率计算
+</div>
+
+</div>
+
+<script>
+// ===== 月度收益柱状图 =====
+new Chart(document.getElementById("monthlyChart"), {
+  type: "bar",
+  data: {
+    labels: ["2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07"],
+    datasets: [
+      { label: "组合总资产", data: [2.52, 5.27, -0.73, -1.33, 0.22, -3.33, 3.99, -0.3, -8.15, 0.17, -7.34, -13.13, 3.58], backgroundColor: "#3b82f6" },
+      { label: "沪深300", data: [1.02, 10.33, 3.2, -0.0, -2.46, 2.28, 1.65, 0.09, -5.53, 8.03, 1.76, 1.78, -9.04], backgroundColor: "#f59e0b" },
+      { label: "净资产", data: [3.73, 7.71, -1.24, -2.13, 0.16, -5.13, 5.85, -0.59, -12.32, 0.07, -11.65, -21.73, 5.36], backgroundColor: "#ef4444" },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { title: { display: true, text: "月度收益率对比（%）" } },
+    scales: { y: { title: { display: true, text: "%" } } }
+  }
+});
+
+// ===== 散点图 =====
+new Chart(document.getElementById("scatterChart"), {
+  type: "scatter",
+  data: {
+    datasets: [{
+      label: "月度收益",
+      data: [{"x": 1.02, "y": 2.52, "label": "2025-07"}, {"x": 10.33, "y": 5.27, "label": "2025-08"}, {"x": 3.2, "y": -0.73, "label": "2025-09"}, {"x": -0.0, "y": -1.33, "label": "2025-10"}, {"x": -2.46, "y": 0.22, "label": "2025-11"}, {"x": 2.28, "y": -3.33, "label": "2025-12"}, {"x": 1.65, "y": 3.99, "label": "2026-01"}, {"x": 0.09, "y": -0.3, "label": "2026-02"}, {"x": -5.53, "y": -8.15, "label": "2026-03"}, {"x": 8.03, "y": 0.17, "label": "2026-04"}, {"x": 1.76, "y": -7.34, "label": "2026-05"}, {"x": 1.78, "y": -13.13, "label": "2026-06"}, {"x": -9.04, "y": 3.58, "label": "2026-07"}],
+      backgroundColor: (ctx) => {
+        const d = ctx.raw; return d && d.y > d.x ? "#27ae60" : "#e74c3c";
+      },
+      pointRadius: 6, pointHoverRadius: 9,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      tooltip: { callbacks: { label: (ctx) => `${ctx.raw.label}: 组合${ctx.raw.y}% / 沪深300${ctx.raw.x}%` } },
+      title: { display: true, text: "月度收益散点（绿=跑赢, 红=跑输）" }
+    },
+    scales: {
+      x: { title: { display: true, text: "沪深300月度收益(%)" } },
+      y: { title: { display: true, text: "组合月度收益(%)" } }
+    }
+  }
+});
+
+// ===== 板块贡献 =====
+new Chart(document.getElementById("sectorContribChart"), {
+  type: "bar",
+  data: {
+    labels: ["\u533b\u7597\u5668\u68b0", "\u533b\u836f", "\u53a8\u7535", "\u7eba\u7ec7\u4ee3\u5de5", "\u6c34\u6ce5", "\u6c7d\u8f66", "\u7535\u9a71\u7cfb\u7edf", "\u4e92\u8054\u7f51", "\u5149\u4f0f", "\u94a2\u7ed3\u6784", "\u5c0f\u5bb6\u7535", "\u751f\u7269\u5236\u836f", "\u8840\u5236\u54c1", "\u5564\u9152", "\u52a8\u7269\u4fdd\u5065", "\u519b\u5de5", "\u751f\u6001\u56ed\u6797", "\u623f\u5730\u4ea7", "\u73af\u4fdd", "\u71c3\u6c14", "LOF\u57fa\u91d1", "ETF", "\u65c5\u6e38\u6f14\u827a", "\u5305\u88c5\u5370\u5237", "\u5bb6\u5c45", "\u4e73\u5236\u54c1", "\u533b\u7597\u670d\u52a1", "\u5976\u7c89", "\u5bb6\u7535", "\u4fdd\u5065\u54c1", "\u4fdd\u9669", "\u8c03\u5473\u54c1", "\u98df\u54c1\u52a0\u5de5", "\u5ba0\u7269\u7528\u54c1", "\u94f6\u884c", "\u5de5\u7a0b\u673a\u68b0", "\u68c0\u6d4b\u670d\u52a1", "\u98df\u54c1", "\u80fd\u6e90", "\u7535\u529b\u8bbe\u5907"],
+    datasets: [{ label: "区间贡献(%)", data: [-9.83, -1.5, -1.13, -0.79, -0.56, -0.56, -0.53, -0.51, -0.47, -0.47, -0.41, -0.39, -0.35, -0.35, -0.29, -0.28, -0.23, -0.21, -0.21, -0.13, -0.12, -0.12, -0.11, -0.1, -0.09, -0.07, -0.05, -0.04, -0.04, -0.03, -0.02, -0.02, -0.02, -0.0, -0.0, 0.01, 0.11, 0.13, 0.15, 1.07],
+      backgroundColor: ["#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#27ae60", "#27ae60", "#27ae60", "#27ae60", "#27ae60"] }]
+  },
+  options: {
+    indexAxis: "y", responsive: true, maintainAspectRatio: false,
+    plugins: { title: { display: true, text: "板块贡献排名" } },
+    scales: { x: { title: { display: true, text: "%" } } }
+  }
+});
+
+// ===== 板块分布 =====
+new Chart(document.getElementById("sectorDistChart"), {
+  type: "bar",
+  data: {
+    labels: ["\u533b\u7597\u5668\u68b0", "\u94a2\u7ed3\u6784", "\u7535\u9a71\u7cfb\u7edf", "\u533b\u836f", "\u53a8\u7535", "\u7535\u529b\u8bbe\u5907", "\u5c0f\u5bb6\u7535", "\u6c34\u6ce5", "ETF", "\u8840\u5236\u54c1", "\u98df\u54c1", "\u519b\u5de5", "\u5564\u9152", "\u5149\u4f0f", "\u68c0\u6d4b\u670d\u52a1"],
+    datasets: [{ label: "市值占比(%)", data: [27.2, 12.2, 7.8, 7.0, 6.5, 3.8, 3.0, 2.6, 2.6, 1.9, 1.7, 1.6, 1.5, 1.5, 1.5],
+      backgroundColor: "#8b5cf6" }]
+  },
+  options: {
+    indexAxis: "y", responsive: true, maintainAspectRatio: false,
+    plugins: { title: { display: true, text: "板块市值分布TOP15" } },
+    scales: { x: { title: { display: true, text: "%" } } }
+  }
+});
+
+// ===== 市场环境适应性 =====
+new Chart(document.getElementById("regimeChart"), {
+  type: "bar",
+  data: {
+    labels: ["\u5927\u6da8", "\u5c0f\u6da8", "\u5e73\u76d8", "\u5c0f\u8dcc", "\u5927\u8dcc"],
+    datasets: [
+      { label: "组合日均(%)", data: [0.66, 0.43, -0.0, -0.57, -1.21], backgroundColor: "#3b82f6" },
+      { label: "沪深300日均(%)", data: [1.57, 0.6, 0.03, -0.59, -1.82], backgroundColor: "#f59e0b" },
+      { label: "日均超额(%)", data: [-0.91, -0.18, -0.04, 0.02, 0.62], backgroundColor: "#27ae60" },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { title: { display: true, text: "各市场环境下日均收益率（%）" } },
+    scales: { y: { title: { display: true, text: "%" } } }
+  }
+});
+</script>
+</body>
+</html>

@@ -43,7 +43,7 @@ tr:hover td { background:#f8fafc; }
 <!-- ===== HEADER ===== -->
 <div class="header">
   <div class="meta">
-    生成时间：2026-07-18 22:35<br>
+    生成时间：2026-07-18 23:04<br>
     数据截止：2026-07-17<br>
     总资产：442万 | 净资产：292万
   </div>
@@ -98,7 +98,7 @@ tr:hover td { background:#f8fafc; }
 
 <!-- ===== II. 历史月度业绩 ===== -->
 <div class="section">
-  <h2>II. 历史月度业绩回顾</h2>
+  <h2>II. 历史月度业绩回顾 <span style="font-size:12px;color:#94a3b8;">— 自组合建立以来各月</span></h2>
   <div class="chart-box"><canvas id="monthlyChart"></canvas></div>
   <div class="insight">
     <b>月度收益散点图（下方）</b>揭示了组合与大盘的联动关系：斜率=组合对大盘的敏感度（beta），
@@ -109,73 +109,31 @@ tr:hover td { background:#f8fafc; }
 
 <!-- ===== III. 业绩归因 ===== -->
 <div class="section">
-  <h2>III. 业绩归因</h2>
+  <h2>III. 业绩归因 <span style="font-size:12px;color:#94a3b8;">— 月度变化（非累计）</span></h2>
+  <div style="font-size:12px;color:#64748b;margin-bottom:12px;">
+    数据区间：07月01日 – 07月17日（当月13个交易日） &nbsp;|&nbsp;
+    口径：本月板块贡献 = 月初权重 × 个股本月收益率，按板块聚合
+  </div>
+  <!-- 板块贡献图（当月） -->
   <div class="chart-box" style="height:460px"><canvas id="sectorContribChart"></canvas></div>
+  <!-- 月末板块市值分布 -->
   <div class="chart-box" style="height:460px"><canvas id="sectorDistChart"></canvas></div>
   <div class="clearfix"></div>
-  <table>
-    <tr><th>板块</th><th>期初权重</th><th>区间贡献</th><th>板块</th><th>期初权重</th><th>区间贡献</th></tr>
-    <tr><td>医疗器械</td><td>31.9%</td><td class="neg">-9.83%</td><td>小家电</td><td>2.8%</td><td class="neg">-0.41%</td></tr><tr><td>医药</td><td>7.2%</td><td class="neg">-1.50%</td><td>生物制药</td><td>1.6%</td><td class="neg">-0.39%</td></tr><tr><td>厨电</td><td>6.5%</td><td class="neg">-1.13%</td><td>血制品</td><td>1.9%</td><td class="neg">-0.35%</td></tr><tr><td>纺织代工</td><td>2.0%</td><td class="neg">-0.79%</td><td>啤酒</td><td>1.6%</td><td class="neg">-0.35%</td></tr><tr><td>水泥</td><td>2.7%</td><td class="neg">-0.56%</td><td>动物保健</td><td>1.5%</td><td class="neg">-0.29%</td></tr><tr><td>汽车</td><td>1.8%</td><td class="neg">-0.56%</td><td>军工</td><td>1.6%</td><td class="neg">-0.28%</td></tr><tr><td>电驱系统</td><td>6.9%</td><td class="neg">-0.53%</td><td>生态园林</td><td>0.5%</td><td class="neg">-0.23%</td></tr><tr><td>互联网</td><td>1.4%</td><td class="neg">-0.51%</td><td>房地产</td><td>0.7%</td><td class="neg">-0.21%</td></tr><tr><td>光伏</td><td>1.7%</td><td class="neg">-0.47%</td><td>环保</td><td>0.9%</td><td class="neg">-0.21%</td></tr><tr><td>钢结构</td><td>10.4%</td><td class="neg">-0.47%</td><td>燃气</td><td>0.4%</td><td class="neg">-0.13%</td></tr>
+  <!-- 板块明细表（当月） -->
+  <table style="margin:16px 0;">
+    <tr><th colspan="3" style="background:#f0f4ff;font-size:13px;">本月板块贡献明细</th></tr>
+    <tr><th>板块</th><th>月初权重</th><th>本月贡献</th><th>板块</th><th>月初权重</th><th>本月贡献</th></tr>
+    <tr><td>电驱系统</td><td>8.8%</td><td class="neg">-0.91%</td><td>医疗服务</td><td>0.3%</td><td class="neg">-0.00%</td></tr><tr><td>电力设备</td><td>4.6%</td><td class="neg">-0.75%</td><td>银行</td><td>0.0%</td><td class="pos">+0.00%</td></tr><tr><td>军工</td><td>1.8%</td><td class="neg">-0.21%</td><td>旅游演艺</td><td>0.3%</td><td class="pos">+0.00%</td></tr><tr><td>检测服务</td><td>1.7%</td><td class="neg">-0.20%</td><td>生物制药</td><td>1.5%</td><td class="pos">+0.00%</td></tr><tr><td>光伏</td><td>1.7%</td><td class="neg">-0.19%</td><td>保险</td><td>0.2%</td><td class="pos">+0.01%</td></tr><tr><td>小家电</td><td>3.2%</td><td class="neg">-0.17%</td><td>房地产</td><td>0.6%</td><td class="pos">+0.01%</td></tr><tr><td>包装印刷</td><td>1.4%</td><td class="neg">-0.12%</td><td>家电</td><td>0.2%</td><td class="pos">+0.01%</td></tr><tr><td>环保</td><td>1.0%</td><td class="neg">-0.07%</td><td>家居</td><td>0.1%</td><td class="pos">+0.01%</td></tr><tr><td>生态园林</td><td>0.4%</td><td class="neg">-0.03%</td><td>能源</td><td>0.7%</td><td class="pos">+0.01%</td></tr><tr><td>汽车</td><td>1.5%</td><td class="neg">-0.01%</td><td>燃气</td><td>0.3%</td><td class="pos">+0.01%</td></tr>
   </table>
-  <h3 style="margin:16px 0 8px;font-size:15px;color:#475569;">最大拖累 TOP5</h3>
-  <div class="stock-row"><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
-            <div style="font-weight:700;color:#e74c3c;">迈瑞医疗</div>
-            <div style="color:#888;">医疗器械</div>
-            <div>权重 30.5% | 收益 -31.2%</div>
-            <div style="font-weight:700;">贡献 -9.50%</div>
-        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
-            <div style="font-weight:700;color:#e74c3c;">老板电器</div>
-            <div style="color:#888;">厨电</div>
-            <div>权重 6.5% | 收益 -17.5%</div>
-            <div style="font-weight:700;">贡献 -1.13%</div>
-        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
-            <div style="font-weight:700;color:#e74c3c;">华利集团</div>
-            <div style="color:#888;">纺织代工</div>
-            <div>权重 2.0% | 收益 -39.9%</div>
-            <div style="font-weight:700;">贡献 -0.79%</div>
-        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
-            <div style="font-weight:700;color:#e74c3c;">石药创新</div>
-            <div style="color:#888;">医药</div>
-            <div>权重 2.5% | 收益 -29.1%</div>
-            <div style="font-weight:700;">贡献 -0.72%</div>
-        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
-            <div style="font-weight:700;color:#e74c3c;">海螺水泥</div>
-            <div style="color:#888;">水泥</div>
-            <div>权重 2.7% | 收益 -20.9%</div>
-            <div style="font-weight:700;">贡献 -0.56%</div>
-        </div></div>
-  <h3 style="margin:16px 0 8px;font-size:15px;color:#475569;">最大贡献 TOP5</h3>
-  <div class="stock-row"><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
-            <div style="font-weight:700;color:#27ae60;">特变电工</div>
-            <div style="color:#888;">电力设备</div>
-            <div>权重 2.1% | 收益 +52.2%</div>
-            <div style="font-weight:700;">贡献 +1.07%</div>
-        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
-            <div style="font-weight:700;color:#27ae60;">安琪酵母</div>
-            <div style="color:#888;">食品</div>
-            <div>权重 1.3% | 收益 +10.2%</div>
-            <div style="font-weight:700;">贡献 +0.13%</div>
-        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
-            <div style="font-weight:700;color:#27ae60;">华测检测</div>
-            <div style="color:#888;">检测服务</div>
-            <div>权重 1.1% | 收益 +9.7%</div>
-            <div style="font-weight:700;">贡献 +0.11%</div>
-        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
-            <div style="font-weight:700;color:#27ae60;">荣盛石化</div>
-            <div style="color:#888;">能源</div>
-            <div>权重 0.2% | 收益 +34.1%</div>
-            <div style="font-weight:700;">贡献 +0.07%</div>
-        </div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;">
-            <div style="font-weight:700;color:#27ae60;"> 宝丰能源</div>
-            <div style="color:#888;">能源</div>
-            <div>权重 0.2% | 收益 +36.5%</div>
-            <div style="font-weight:700;">贡献 +0.07%</div>
-        </div></div>
+  <h3 style="margin:16px 0 8px;font-size:15px;color:#475569;">本月最大拖累 TOP5</h3>
+  <div class="stock-row"><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#e74c3c;">八方股份</div><div style="color:#888;">电驱系统</div><div>月初权重 8.8% | 本月 -10.4%</div><div style="font-weight:700;">贡献 -0.91%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#e74c3c;">特变电工</div><div style="color:#888;">电力设备</div><div>月初权重 4.6% | 本月 -16.2%</div><div style="font-weight:700;">贡献 -0.75%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#e74c3c;">北摩高科</div><div style="color:#888;">军工</div><div>月初权重 1.8% | 本月 -11.4%</div><div style="font-weight:700;">贡献 -0.21%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#e74c3c;">华测检测</div><div style="color:#888;">检测服务</div><div>月初权重 1.7% | 本月 -11.8%</div><div style="font-weight:700;">贡献 -0.20%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#e74c3c;">隆基绿能</div><div style="color:#888;">光伏</div><div>月初权重 1.7% | 本月 -10.9%</div><div style="font-weight:700;">贡献 -0.19%</div></div></div>
+  <h3 style="margin:16px 0 8px;font-size:15px;color:#475569;">本月最大贡献 TOP5</h3>
+  <div class="stock-row"><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#27ae60;">迈瑞医疗</div><div style="color:#888;">医疗器械</div><div>月初权重 24.6% | 本月 +5.5%</div><div style="font-weight:700;">贡献 +1.34%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#27ae60;">石药创新</div><div style="color:#888;">医药</div><div>月初权重 1.7% | 本月 +24.4%</div><div style="font-weight:700;">贡献 +0.42%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#27ae60;">老板电器</div><div style="color:#888;">厨电</div><div>月初权重 6.3% | 本月 +5.3%</div><div style="font-weight:700;">贡献 +0.33%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#27ae60;">精工钢构</div><div style="color:#888;">钢结构</div><div>月初权重 12.1% | 本月 +2.2%</div><div style="font-weight:700;">贡献 +0.27%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#27ae60;">中牧股份</div><div style="color:#888;">动物保健</div><div>月初权重 1.4% | 本月 +9.6%</div><div style="font-weight:700;">贡献 +0.13%</div></div></div>
 </div>
 
 <!-- ===== IV. 风险仪表盘 ===== -->
 <div class="section">
-  <h2>IV. 风险仪表盘</h2>
+  <h2>IV. 风险仪表盘 <span style="font-size:12px;color:#94a3b8;">— 基于组合完整历史日数据计算</span></h2>
   <div class="metrics-grid">
     <div class="metric-card"><div class="label">总资产Beta</div><div class="value">0.58</div></div>
     <div class="metric-card"><div class="label">净资产Beta</div><div class="value">0.88</div></div>
@@ -193,7 +151,7 @@ tr:hover td { background:#f8fafc; }
 
 <!-- ===== V. 市场环境适应性分析（核心） ===== -->
 <div class="section">
-  <h2>V. 市场环境适应性分析 <span style="font-size:12px;color:#94a3b8;">— 什么情况跑赢？什么情况折戟？</span></h2>
+  <h2>V. 市场环境适应性分析 <span style="font-size:12px;color:#94a3b8;">— 什么情况跑赢？什么情况折戟？（基于组合完整历史日数据）</span></h2>
   <div class="chart-box"><canvas id="regimeChart"></canvas></div>
   <table>
     <tr><th>市场环境</th><th>样本天数</th><th>组合日均</th><th>沪深300日均</th><th>日均超额</th><th>胜率</th><th>regime-beta</th></tr>
@@ -217,7 +175,7 @@ tr:hover td { background:#f8fafc; }
 
 <!-- ===== VI. 持仓结构审视 ===== -->
 <div class="section">
-  <h2>VI. 持仓结构审视</h2>
+  <h2>VI. 持仓结构审视 <span style="font-size:12px;color:#94a3b8;">— 截至2026年7月月末持仓</span></h2>
   <div class="metrics-grid">
     <div class="metric-card"><div class="label">持仓数量</div><div class="value">62</div></div>
     <div class="metric-card"><div class="label">HHI集中度</div><div class="value">0.0986</div><div class="sub">偏高</div></div>
@@ -243,7 +201,7 @@ tr:hover td { background:#f8fafc; }
 </div>
 
 <div class="footer">
-  四季豆组合 · 月度审视报告 · 2026年7月 · 生成于2026-07-18 22:35<br>
+  四季豆组合 · 月度审视报告 · 2026年7月 · 生成于2026-07-18 23:04<br>
   数据口径：TWR时间加权收益率，已剔除银证转账与杠杆注入影响 | Beta/TE/IR基于日度收益率计算
 </div>
 
@@ -298,13 +256,13 @@ new Chart(document.getElementById("scatterChart"), {
 new Chart(document.getElementById("sectorContribChart"), {
   type: "bar",
   data: {
-    labels: ["\u533b\u7597\u5668\u68b0", "\u533b\u836f", "\u53a8\u7535", "\u7eba\u7ec7\u4ee3\u5de5", "\u6c34\u6ce5", "\u6c7d\u8f66", "\u7535\u9a71\u7cfb\u7edf", "\u4e92\u8054\u7f51", "\u5149\u4f0f", "\u94a2\u7ed3\u6784", "\u5c0f\u5bb6\u7535", "\u751f\u7269\u5236\u836f", "\u8840\u5236\u54c1", "\u5564\u9152", "\u7535\u529b\u8bbe\u5907"],
-    datasets: [{ label: "区间贡献(%)", data: [-9.83, -1.5, -1.13, -0.79, -0.56, -0.56, -0.53, -0.51, -0.47, -0.47, -0.41, -0.39, -0.35, -0.35, 1.07],
-      backgroundColor: ["#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#27ae60"] }]
+    labels: ["\u7535\u9a71\u7cfb\u7edf", "\u7535\u529b\u8bbe\u5907", "\u519b\u5de5", "\u68c0\u6d4b\u670d\u52a1", "\u5149\u4f0f", "\u5c0f\u5bb6\u7535", "\u5305\u88c5\u5370\u5237", "\u98df\u54c1", "\u8840\u5236\u54c1", "\u7eba\u7ec7\u4ee3\u5de5", "\u52a8\u7269\u4fdd\u5065", "\u94a2\u7ed3\u6784", "\u53a8\u7535", "\u533b\u836f", "\u533b\u7597\u5668\u68b0"],
+    datasets: [{ label: "区间贡献(%)", data: [-0.91, -0.75, -0.21, -0.2, -0.19, -0.17, -0.12, 0.08, 0.08, 0.08, 0.13, 0.27, 0.33, 0.62, 1.44],
+      backgroundColor: ["#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#27ae60", "#27ae60", "#27ae60", "#27ae60", "#27ae60", "#27ae60", "#27ae60", "#27ae60"] }]
   },
   options: {
     indexAxis: "y", responsive: true, maintainAspectRatio: false,
-    plugins: { title: { display: true, text: "板块贡献排名" } },
+    plugins: { title: { display: true, text: "本月板块贡献（月度变化）" } },
     scales: { x: { title: { display: true, text: "%" } },
               y: { ticks: { autoSkip: false, font: { size: 11 } }, afterFit: function(axis){ axis.width = 140; } } }
   }
@@ -320,7 +278,7 @@ new Chart(document.getElementById("sectorDistChart"), {
   },
   options: {
     indexAxis: "y", responsive: true, maintainAspectRatio: false,
-    plugins: { title: { display: true, text: "板块市值分布TOP15" } },
+    plugins: { title: { display: true, text: "月末板块市值分布TOP15" } },
     scales: { x: { title: { display: true, text: "%" } },
               y: { ticks: { autoSkip: false, font: { size: 11 } }, afterFit: function(axis){ axis.width = 140; } } }
   }

@@ -43,7 +43,7 @@ tr:hover td { background:#f8fafc; }
 <!-- ===== HEADER ===== -->
 <div class="header">
   <div class="meta">
-    生成时间：2026-07-20 19:20<br>
+    生成时间：2026-07-20 22:40<br>
     数据截止：2026-07-20
   </div>
   <h1 style="text-align:center;">四季豆月度组合审视报告 · 2026年7月</h1>
@@ -107,9 +107,9 @@ tr:hover td { background:#f8fafc; }
 
 <!-- ===== II. 月度净值走势 ===== -->
 <div class="section">
-  <h2>II. 本月净值走势 <span style="font-size:12px;color:#94a3b8;">— 以上月底收盘为 0% 基准，总资产 / 净资产 / 沪深300 三线叠加</span></h2>
+  <h2>II. 本月净值走势 <span style="font-size:12px;color:#94a3b8;">— 以上月底收盘为 0% 基准，总资产 / 净资产 / 沪深300 / 偏股基金 四线叠加</span></h2>
   <div class="insight">
-    下图展示 <b>2026年7月</b> 每日净值相对<b>上月底收盘（7月1日开盘前）</b>的涨跌幅（%）。三条线叠在同一坐标系：<span style="color:#3b82f6;font-weight:600;">总资产</span>、<span style="color:#ef4444;font-weight:600;">净资产</span>、<span style="color:#f59e0b;font-weight:600;">沪深300</span>。任意时点的垂直间距即为相对沪深300的超额（或落后）<b>百分点</b>，差距一目了然。
+    下图展示 <b>2026年7月</b> 每日净值相对<b>上月底收盘（7月1日开盘前）</b>的涨跌幅（%）。四条线叠在同一坐标系：<span style="color:#3b82f6;font-weight:600;">总资产</span>、<span style="color:#ef4444;font-weight:600;">净资产</span>、<span style="color:#f59e0b;font-weight:600;">沪深300</span>、<span style="color:#10b981;font-weight:600;">偏股基金(CN6070)</span>。垂直间距即为相对沪深300和偏股基金的超额（或落后）<b>百分点</b>。
   </div>
   <div class="chart-box" style="height:420px;">
     <canvas id="navChart"></canvas>
@@ -222,7 +222,7 @@ tr:hover td { background:#f8fafc; }
 </div>
 
 <div class="footer">
-  四季豆月度组合审视报告 · 2026年7月 · 生成于2026-07-20 19:20<br>
+  四季豆月度组合审视报告 · 2026年7月 · 生成于2026-07-20 22:40<br>
   数据口径：TWR时间加权收益率，已剔除银证转账与杠杆注入影响 | Beta/TE/IR基于日度收益率计算
 </div>
 
@@ -323,17 +323,18 @@ new Chart(document.getElementById("regimeChart"), {
   }
 });
 
-// ===== 本月净值走势（审阅月单张，上月底收盘为 0% 基准，三线叠加） =====
-const navData = {"month": "2026-07", "labels": ["06-30", "07-01", "07-02", "07-03", "07-06", "07-07", "07-08", "07-09", "07-10", "07-13", "07-14", "07-15", "07-16", "07-17", "07-20"], "port": [0.0, 2.56, 2.77, 4.19, 4.32, 1.62, 0.86, 0.8, 2.2, 0.1, 1.59, 4.58, 5.7, 3.57, 5.38], "net": [0.0, 4.73, 5.1, 7.72, 7.95, 2.93, 1.51, 1.38, 3.96, 0.06, 2.33, 6.89, 8.61, 5.34, 8.11], "csi": [0.0, -0.41, -3.36, -2.76, -2.76, -3.76, -4.5, -2.07, -3.99, -5.7, -3.67, -3.87, -5.64, -9.04, -7.65]};
-const navColors = { port: "#3b82f6", net: "#ef4444", csi: "#f59e0b" };
+// ===== 本月净值走势（审阅月单张，上月底收盘为 0% 基准，四线叠加） =====
+const navData = {"month": "2026-07", "labels": ["06-30", "07-01", "07-02", "07-03", "07-06", "07-07", "07-08", "07-09", "07-10", "07-13", "07-14", "07-15", "07-16", "07-17", "07-20"], "port": [0.0, 2.56, 2.77, 4.19, 4.32, 1.62, 0.86, 0.8, 2.2, 0.1, 1.59, 4.58, 5.7, 3.57, 5.38], "net": [0.0, 4.73, 5.1, 7.72, 7.95, 2.93, 1.51, 1.38, 3.96, 0.06, 2.33, 6.89, 8.61, 5.34, 8.11], "csi": [0.0, -0.41, -3.36, -2.76, -2.76, -3.76, -4.5, -2.07, -3.99, -5.7, -3.67, -3.87, -5.64, -9.04, -7.65], "cn6070": [0.0, -0.68, -4.55, -3.92, -4.57, -5.71, -6.57, -3.55, -5.94, -8.78, -6.68, -7.63, -9.64, -14.52, -14.52]};
+const navColors = { port: "#3b82f6", net: "#ef4444", csi: "#f59e0b", cn6070: "#10b981" };
 new Chart(document.getElementById("navChart"), {
   type: "line",
   data: {
     labels: navData.labels,
     datasets: [
-      { label: "总资产（较月初%）", data: navData.port, borderColor: navColors.port, backgroundColor: navColors.port, borderWidth: 2.5, pointRadius: 0, tension: 0.2 },
-      { label: "净资产（较月初%）", data: navData.net,  borderColor: navColors.net,  backgroundColor: navColors.net,  borderWidth: 2.5, pointRadius: 0, tension: 0.2 },
-      { label: "沪深300（较月初%）", data: navData.csi, borderColor: navColors.csi, backgroundColor: navColors.csi, borderWidth: 2, pointRadius: 0, tension: 0.2, borderDash: [6,4] }
+      { label: "总资产（较上月底%）", data: navData.port, borderColor: navColors.port, backgroundColor: navColors.port, borderWidth: 2.5, pointRadius: 0, tension: 0.2 },
+      { label: "净资产（较上月底%）", data: navData.net,  borderColor: navColors.net,  backgroundColor: navColors.net,  borderWidth: 2.5, pointRadius: 0, tension: 0.2 },
+      { label: "沪深300（较上月底%）", data: navData.csi, borderColor: navColors.csi, backgroundColor: navColors.csi, borderWidth: 2, pointRadius: 0, tension: 0.2, borderDash: [6,4] },
+      { label: "偏股基金 CN6070（较上月底%）", data: navData.cn6070, borderColor: navColors.cn6070, backgroundColor: navColors.cn6070, borderWidth: 2, pointRadius: 0, tension: 0.2, borderDash: [3,3] }
     ]
   },
   options: {

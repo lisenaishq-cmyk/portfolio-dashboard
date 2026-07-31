@@ -43,7 +43,7 @@ tr:hover td { background:#f8fafc; }
 <!-- ===== HEADER ===== -->
 <div class="header">
   <div class="meta">
-    生成时间：2026-08-01 02:03<br>
+    生成时间：2026-08-01 02:07<br>
     数据截止：2026-07-31
   </div>
   <h1 style="text-align:center;">四季豆月度组合审视报告 · 2026年7月</h1>
@@ -215,7 +215,7 @@ tr:hover td { background:#f8fafc; }
 </div>
 
 <div class="footer">
-  四季豆月度组合审视报告 · 2026年7月 · 生成于2026-08-01 02:03<br>
+  四季豆月度组合审视报告 · 2026年7月 · 生成于2026-08-01 02:07<br>
   数据口径：TWR时间加权收益率，已剔除银证转账与杠杆注入影响 | Beta/TE/IR基于日度收益率计算
 </div>
 
@@ -276,7 +276,19 @@ new Chart(document.getElementById("sectorContribChart"), {
   },
   options: {
     indexAxis: "y", responsive: true, maintainAspectRatio: false,
-    plugins: { title: { display: true, text: "本月板块贡献（月度变化）" } },
+    plugins: {
+      title: { display: true, text: "本月板块贡献（月度变化）", font: { size: 14 } },
+      legend: { display: true, position: "top",
+        labels: {
+          generateLabels: function(chart) {
+            return [
+              { text: "  正向贡献（盈利）", fillStyle: "#e74c3c", strokeStyle: "#e74c3c", lineWidth: 0, font: { size: 11 } },
+              { text: "  负向（亏损）",     fillStyle: "#27ae60", strokeStyle: "#27ae60", lineWidth: 0, font: { size: 11 } }
+            ];
+          }
+        }
+      }
+    },
     scales: { x: { title: { display: true, text: "%" } },
               y: { ticks: { autoSkip: false, font: { size: 11 } }, afterFit: function(axis){ axis.width = 140; } } }
   }

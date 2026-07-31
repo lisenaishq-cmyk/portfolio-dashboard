@@ -43,7 +43,7 @@ tr:hover td { background:#f8fafc; }
 <!-- ===== HEADER ===== -->
 <div class="header">
   <div class="meta">
-    生成时间：2026-08-01 02:10<br>
+    生成时间：2026-08-01 02:15<br>
     数据截止：2026-07-31
   </div>
   <h1 style="text-align:center;">四季豆月度组合审视报告 · 2026年7月</h1>
@@ -215,7 +215,7 @@ tr:hover td { background:#f8fafc; }
 </div>
 
 <div class="footer">
-  四季豆月度组合审视报告 · 2026年7月 · 生成于2026-08-01 02:10<br>
+  四季豆月度组合审视报告 · 2026年7月 · 生成于2026-08-01 02:15<br>
   数据口径：TWR时间加权收益率，已剔除银证转账与杠杆注入影响 | Beta/TE/IR基于日度收益率计算
 </div>
 
@@ -270,9 +270,9 @@ new Chart(document.getElementById("scatterChart"), {
 new Chart(document.getElementById("sectorContribChart"), {
   type: "bar",
   data: {
-    labels: ["\u7535\u9a71\u7cfb\u7edf", "\u7535\u529b\u8bbe\u5907", "\u5c0f\u5bb6\u7535", "\u6c7d\u8f66", "\u5564\u9152", "\u8840\u5236\u54c1", "\u98df\u54c1\u52a0\u5de5", "\u6c34\u6ce5", "ETF", "\u98df\u54c1", "\u7eba\u7ec7\u4ee3\u5de5", "\u53a8\u7535", "\u94a2\u7ed3\u6784", "\u533b\u836f", "\u533b\u7597\u5668\u68b0"],
-    datasets: [{ label: "区间贡献(%)", data: [-0.75, -0.33, 0.16, 0.17, 0.18, 0.18, 0.21, 0.24, 0.25, 0.26, 0.27, 0.56, 0.79, 1.0, 4.33],
-      backgroundColor: ["#27ae60", "#27ae60", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c"] }]
+    labels: ["\u533b\u7597\u5668\u68b0", "\u533b\u836f", "\u94a2\u7ed3\u6784", "\u53a8\u7535", "\u7eba\u7ec7\u4ee3\u5de5", "\u98df\u54c1", "ETF", "\u6c34\u6ce5", "\u98df\u54c1\u52a0\u5de5", "\u8840\u5236\u54c1", "\u5564\u9152", "\u6c7d\u8f66", "\u5c0f\u5bb6\u7535", "\u7535\u529b\u8bbe\u5907", "\u7535\u9a71\u7cfb\u7edf"],
+    datasets: [{ label: "区间贡献(%)", data: [4.33, 1.0, 0.79, 0.56, 0.27, 0.26, 0.25, 0.24, 0.21, 0.18, 0.18, 0.17, 0.16, -0.33, -0.75],
+      backgroundColor: ["#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#27ae60", "#27ae60"] }]
   },
   options: {
     indexAxis: "y", responsive: true, maintainAspectRatio: false,

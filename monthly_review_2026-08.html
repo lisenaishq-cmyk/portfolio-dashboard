@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四季豆月度组合审视 · 2026年8月</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+       background:#f5f6fa; color:#2c3e50; line-height:1.6; }
+.container { max-width:1200px; margin:0 auto; padding:20px; }
+.header { background:linear-gradient(135deg,#1a1a2e,#16213e); color:#fff; padding:30px; border-radius:12px; margin-bottom:24px; position:relative; }
+.header h1 { font-size:24px; margin-bottom:8px; text-align:center; }
+.header .sub { font-size:14px; color:#a0aec0; text-align:center; }
+.header .meta { position:absolute; right:30px; top:36px; text-align:right; font-size:13px; color:#a0aec0; line-height:2.2; }
+.section { background:#fff; border-radius:10px; padding:24px; margin-bottom:20px; box-shadow:0 1px 3px rgba(0,0,0,0.08); }
+.section h2 { font-size:18px; border-left:4px solid #3b82f6; padding-left:12px; margin-bottom:16px; color:#1e293b; }
+.metrics-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px; }
+.metric-card { background:#f8fafc; border-radius:8px; padding:14px; text-align:center; }
+.metric-card .label { font-size:11px; color:#64748b; margin-bottom:4px; }
+.metric-card .value { font-size:20px; font-weight:700; }
+.metric-card .sub { font-size:11px; color:#94a3b8; margin-top:2px; }
+.pos { color:#e74c3c; } .neg { color:#27ae60; } .neutral { color:#64748b; }
+.chart-box { width:100%; height:320px; margin:16px 0; }
+.chart-box.half { width:48%; display:inline-block; height:380px; }
+.chart-box.half.right { float:right; }
+.insight { background:#eff6ff; border-left:4px solid #3b82f6; padding:14px 18px; border-radius:0 8px 8px 0; margin:12px 0; font-size:14px; }
+.insight.warn { background:#fef3c7; border-left-color:#f59e0b; }
+.insight.danger { background:#fee2e2; border-left-color:#ef4444; }
+table { width:100%; border-collapse:collapse; margin:12px 0; font-size:13px; }
+th { background:#f1f5f9; padding:8px 12px; text-align:left; font-weight:600; color:#475569; border-bottom:2px solid #e2e8f0; }
+td { padding:8px 12px; border-bottom:1px solid #f1f5f9; }
+tr:hover td { background:#f8fafc; }
+.stock-row { display:flex; flex-wrap:wrap; gap:4px; }
+.clearfix::after { content:""; display:table; clear:both; }
+.footer { text-align:center; color:#94a3b8; font-size:12px; padding:20px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <div class="meta">
+    生成时间：2026-08-31 17:11<br>
+    数据截止：2026-08-31
+  </div>
+  <h1 style="text-align:center;">四季豆月度组合审视报告 · 2026年8月</h1>
+</div>
+
+<!-- ===== I. 执行摘要 ===== -->
+<div class="section">
+  <h2>I. 执行摘要</h2>
+  <div class="metrics-grid">
+    <!-- ── 第一行：当月数据（左半=总资产，右半=净资产）── -->
+    <div class="metric-card">
+      <div class="label">本月·总资产收益</div>
+      <div class="value pos">+0.16%</div>
+      <div class="sub">沪深300 +0.80%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">本月·相对沪深300</div>
+      <div class="value neg">-0.64%</div>
+      <div class="sub">沪深300 +0.80%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">本月·相对偏股基金</div>
+      <div class="value neg">-4.77%</div>
+      <div class="sub">CN6070 +4.93%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">本月·净资产收益</div>
+      <div class="value pos">+0.06%</div>
+      <div class="sub">杠杆1.49倍</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">本月·净资产超额</div>
+      <div class="value neg">-0.74%</div>
+      <div class="sub">放大了亏损</div>
+    </div>
+    <!-- ── 第二行：年度数据 + 风险指标 ── -->
+    <div class="metric-card">
+      <div class="label">年度·总资产收益</div>
+      <div class="value neg">-14.5%</div>
+      <div class="sub">沪深300 -0.1%</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">年度·超额(总资产)</div>
+      <div class="value neg">-14.4%</div>
+      <div class="sub">IR=-1.49</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">年度·净资产收益</div>
+      <div class="value neg">-21.1%</div>
+      <div class="sub">杠杆1.49倍</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">年化波动率(总资产)</div>
+      <div class="value">17.2%</div>
+      <div class="sub">最大回撤-28.4%</div>
+    </div>
+  </div>
+  <div class="insight">
+    <b>本月概要：</b>2026年8月组合总资产 <b class="pos">+0.16%</b>，
+    沪深300 <b class="pos">+0.80%</b>，偏股基金CN6070 <b class="pos">+4.93%</b>；
+    相对两基准分别 <b class="neg">-0.64</b> / <b class="neg">-4.77</b> 个百分点。
+    杠杆后净资产 +0.06%<b>（相对沪深300 -0.74个百分点）</b>。
+    当月Beta=-0.13、跟踪误差23.4%、信息比率-0.33。
+  </div>
+</div>
+
+<!-- ===== II. 月度净值走势 ===== -->
+<div class="section">
+  <h2>II. 本月净值走势 <span style="font-size:12px;color:#94a3b8;">— 以上月底收盘为 0% 基准，总资产 / 净资产 / 沪深300 / 偏股基金 四线叠加</span></h2>
+  <div class="insight">
+    下图展示 <b>2026年8月</b> 每日净值相对<b>上月底收盘（7月1日开盘前）</b>的涨跌幅（%）。四条线叠在同一坐标系：<span style="color:#3b82f6;font-weight:600;">总资产</span>、<span style="color:#ef4444;font-weight:600;">净资产</span>、<span style="color:#f59e0b;font-weight:600;">沪深300</span>、<span style="color:#10b981;font-weight:600;">偏股基金(CN6070)</span>。垂直间距即为相对沪深300和偏股基金的超额（或落后）<b>百分点</b>。
+  </div>
+  <div class="chart-box" style="height:420px;">
+    <canvas id="navChart"></canvas>
+  </div>
+</div>
+
+<!-- ===== III. 历史月度业绩 ===== -->
+<div class="section">
+  <h2>III. 历史月度业绩回顾 <span style="font-size:12px;color:#94a3b8;">— 自组合建立以来各月</span></h2>
+  <div class="chart-box"><canvas id="monthlyChart"></canvas></div>
+  <div class="insight">
+    <b>月度收益散点图（下方）</b>揭示了组合与大盘的联动关系：斜率=组合对大盘的敏感度（beta），
+    点离45度线的距离=该月alpha。散点在45度线下方=跑输，上方=跑赢。
+  </div>
+  <div class="chart-box"><canvas id="scatterChart"></canvas></div>
+</div>
+
+<!-- ===== IV. 业绩归因 ===== -->
+<div class="section">
+  <h2>IV. 业绩归因 <span style="font-size:12px;color:#94a3b8;">— 月度变化（非累计）</span></h2>
+  <div style="font-size:12px;color:#64748b;margin-bottom:12px;">
+    数据区间：07月31日 – 08月31日（当月21个交易日） &nbsp;|&nbsp;
+    口径：本月板块贡献 = 月初权重 × 个股本月收益率，按板块聚合
+  </div>
+  <!-- 板块贡献图（当月） -->
+  <div class="chart-box" style="height:460px"><canvas id="sectorContribChart"></canvas></div>
+  <!-- 月末板块市值分布 -->
+  <div class="chart-box" style="height:460px"><canvas id="sectorDistChart"></canvas></div>
+  <div class="clearfix"></div>
+  <h3 style="margin:16px 0 8px;font-size:15px;color:#475569;">本月最大拖累 TOP5</h3>
+  <div class="stock-row"><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#27ae60;">特变电工</div><div style="color:#888;">电力设备</div><div>月初权重 4.1% | 本月 -8.6%</div><div style="font-weight:700;">贡献 -0.35%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#27ae60;">重庆啤酒</div><div style="color:#888;">啤酒</div><div>月初权重 1.5% | 本月 -14.1%</div><div style="font-weight:700;">贡献 -0.21%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#27ae60;">健帆生物</div><div style="color:#888;">医疗器械</div><div>月初权重 1.2% | 本月 -15.2%</div><div style="font-weight:700;">贡献 -0.19%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#27ae60;">海螺水泥</div><div style="color:#888;">水泥</div><div>月初权重 2.6% | 本月 -4.9%</div><div style="font-weight:700;">贡献 -0.13%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#27ae60;">隆基绿能</div><div style="color:#888;">光伏</div><div>月初权重 1.6% | 本月 -7.1%</div><div style="font-weight:700;">贡献 -0.11%</div></div></div>
+  <h3 style="margin:16px 0 8px;font-size:15px;color:#475569;">本月最大贡献 TOP5</h3>
+  <div class="stock-row"><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#e74c3c;">迈瑞医疗</div><div style="color:#888;">医疗器械</div><div>月初权重 25.9% | 本月 +4.1%</div><div style="font-weight:700;">贡献 +1.06%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#e74c3c;">八方股份</div><div style="color:#888;">电驱系统</div><div>月初权重 7.4% | 本月 +9.3%</div><div style="font-weight:700;">贡献 +0.69%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#e74c3c;">精工钢构</div><div style="color:#888;">钢结构</div><div>月初权重 12.0% | 本月 +2.1%</div><div style="font-weight:700;">贡献 +0.25%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#e74c3c;">石药创新</div><div style="color:#888;"></div><div>月初权重 2.0% | 本月 +7.4%</div><div style="font-weight:700;">贡献 +0.15%</div></div><div style="display:inline-block;width:18%;margin:4px;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;"><div style="font-weight:700;color:#e74c3c;">奥佳华</div><div style="color:#888;">小家电</div><div>月初权重 0.6% | 本月 +23.4%</div><div style="font-weight:700;">贡献 +0.14%</div></div></div>
+</div>
+
+<!-- ===== V. 风险仪表盘 ===== -->
+<div class="section">
+  <h2>V. 风险仪表盘 <span style="font-size:12px;color:#94a3b8;">— 基于组合完整历史日数据计算</span></h2>
+  <div class="metrics-grid">
+    <div class="metric-card"><div class="label">总资产Beta</div><div class="value">0.48</div></div>
+    <div class="metric-card"><div class="label">净资产Beta</div><div class="value">0.67</div></div>
+    <div class="metric-card"><div class="label">跟踪误差</div><div class="value">17.6%</div></div>
+    <div class="metric-card"><div class="label">信息比率</div><div class="value neg">-1.49</div></div>
+    <div class="metric-card"><div class="label">最大回撤</div><div class="value neg">-28.4%</div></div>
+    <div class="metric-card"><div class="label">历史5%分位(日)</div><div class="value neg">-1.8%</div></div>
+    <div class="metric-card"><div class="label">历史CVaR(日)</div><div class="value neg">-2.3%</div></div>
+  </div>
+  <div class="insight">
+    <b>风险事实：</b>总资产Beta=0.48，净资产Beta=0.67；跟踪误差17.6%，信息比率-1.49。
+    历史日收益5%分位为-1.8%，其尾部平均为-2.3%；这是样本统计，不等同于未来损失上限，未做正态分布假设。
+  </div>
+</div>
+
+<!-- ===== VI. 市场环境适应性分析（核心） ===== -->
+<div class="section">
+  <h2>VI. 沪深300涨跌情景统计 <span style="font-size:12px;color:#94a3b8;">— 历史条件分布，不等同于完整市场环境或未来预测</span></h2>
+  <div class="chart-box"><canvas id="regimeChart"></canvas></div>
+  <table>
+    <tr><th>市场环境</th><th>样本天数</th><th>组合日均</th><th>沪深300日均</th><th>日均超额</th><th>胜率</th><th>regime-beta</th></tr>
+    <tr><td><b>大涨</b></td><td>53</td><td class="pos">+0.610%</td><td class="pos">+1.580%</td><td class="neg">-0.970%</td><td>15%</td><td>0.16</td></tr><tr><td><b>小涨</b></td><td>52</td><td class="pos">+0.338%</td><td class="pos">+0.621%</td><td class="neg">-0.283%</td><td>38%</td><td>0.37</td></tr><tr><td><b>平盘</b></td><td>70</td><td class="pos">+0.049%</td><td class="pos">+0.030%</td><td class="pos">+0.019%</td><td>49%</td><td>0.25</td></tr><tr><td><b>小跌</b></td><td>60</td><td class="neg">-0.522%</td><td class="neg">-0.593%</td><td class="pos">+0.071%</td><td>53%</td><td>1.20</td></tr><tr><td><b>大跌</b></td><td>37</td><td class="neg">-0.969%</td><td class="neg">-1.840%</td><td class="pos">+0.871%</td><td>68%</td><td>0.37</td></tr>
+  </table>
+  <div class="insight">
+    <b>样本结论：</b>按沪深300单日涨跌分组，样本内<b>大跌日</b>日均超额最高（+0.87%，n=37），<b>大涨日</b>最低（-0.97%，n=53）。这只能说明历史条件分布，不能据此推断市场风格或未来表现。
+  </div>
+  <div class="insight">
+    <b>涨跌Beta：</b>样本内上涨日Beta=0.29、下跌日Beta=0.46，差值=+0.17。该差值未做显著性检验，仅作为历史样本描述。
+  </div>
+  <div class="insight warn">
+    <b>证据边界：</b>本节只使用沪深300日收益分组，未纳入大小盘、价值成长、行业广度、估值或流动性数据，因此不据此判断“蓝筹行情”“风格切换”或“个股Alpha行情”。
+  </div>
+</div>
+
+<!-- ===== VII. 持仓结构审视 ===== -->
+<div class="section">
+  <h2>VII. 持仓结构审视 <span style="font-size:12px;color:#94a3b8;">— 截至2026年08月31日真实份额</span></h2>
+  <div class="metrics-grid">
+    <div class="metric-card"><div class="label">持仓数量</div><div class="value">62</div></div>
+    <div class="metric-card"><div class="label">HHI集中度</div><div class="value">0.1091</div><div class="sub">描述性指标，未设政策阈值</div></div>
+    <div class="metric-card"><div class="label">前5集中度</div><div class="value">58%</div></div>
+    <div class="metric-card"><div class="label">前10集中度</div><div class="value">68%</div></div>
+    <div class="metric-card"><div class="label">板块数</div><div class="value">40</div></div>
+    <div class="metric-card"><div class="label">杠杆</div><div class="value">1.49x</div></div>
+  </div>
+  <div class="insight">
+    <b>结构特征：</b>组合持有62只标的，分布在40个板块，前5大持仓占比58%。
+    最大板块为「医疗器械」(29.6%)，
+    板块数量与权重仅作结构描述，不预设“合理/不合理”阈值。
+    HHI=0.1091（描述性集中度指标，需结合政策目标、流动性与压力测试解释）。
+  </div>
+</div>
+
+<!-- ===== VIII. 条件化复核清单 ===== -->
+<div class="section">
+  <h2>VIII. 条件化复核清单 <span style="font-size:12px;color:#94a3b8;">— 不自动生成买卖、仓位或杠杆指令</span></h2>
+  <div class="insight">
+    <b>1.</b> 累计相对沪深300 -27.9个百分点、相对CN6070 -40.1个百分点。复核长期基准是否仍与组合策略一致；不由月报自动更换基准或配置ETF。<br><b>2.</b> 月末前5集中度 57.7%、HHI 0.1091。复核最大持仓的基本面、流动性和压力损失；具体单股上限须由投资政策批准。<br><b>3.</b> 估算杠杆 1.49倍，历史最大回撤 -28.4%。结合下方压力情景复核可承受回撤和现金缓冲；月报不自动给出目标杠杆。<br><b>4.</b> 沪深300上涨/下跌日Beta分别为 0.29/0.46。仅在滚动窗口重复出现且置信区间不重叠时，才升级为稳定风险特征。
+  </div>
+  <h3 style="margin:16px 0 8px;font-size:15px;color:#475569;">静态杠杆压力情景</h3>
+  <table>
+    <tr><th>总资产冲击</th><th>净资产估算冲击</th><th>假设</th></tr>
+    <tr><td>总资产 -10%</td><td class='neg'>-14.9%</td><td>静态负债不变、忽略交易与相关性变化</td></tr><tr><td>总资产 -15%</td><td class='neg'>-22.4%</td><td>静态负债不变、忽略交易与相关性变化</td></tr><tr><td>总资产 -20%</td><td class='neg'>-29.8%</td><td>静态负债不变、忽略交易与相关性变化</td></tr>
+  </table>
+  <div class="insight warn"><b>使用边界：</b>压力表仅用于复核风险承受能力，不构成降杠杆或加仓建议。具体上限须写入并经用户批准的投资政策后才可触发。</div>
+</div>
+
+<div class="footer">
+  四季豆月度组合审视报告 · 2026年8月 · 生成于2026-08-31 17:11<br>
+  数据口径：月度收益、净值曲线、Beta/TE/IR基于 `portfolio_analysis.csv` 截至审阅月末的组合日收益序列；净资产按总资产−含息融资负债核算，含真实交易与融资成本。金额加权历史收益序列待上游完整回写后再纳入。
+</div>
+
+</div>
+
+<script>
+// ===== 月度收益柱状图 =====
+new Chart(document.getElementById("monthlyChart"), {
+  type: "bar",
+  data: {
+    labels: ["2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08"],
+    datasets: [
+      { label: "组合总资产", data: [5.68, -0.73, -1.33, 0.22, -3.33, 3.99, -0.3, -8.15, 0.17, -7.34, -13.13, 11.11, 0.16], backgroundColor: "#3b82f6" },
+      { label: "沪深300", data: [10.47, 3.2, -0.0, -2.46, 2.28, 1.65, 0.09, -5.53, 8.03, 1.76, 1.78, -7.86, 0.8], backgroundColor: "#f59e0b" },
+      { label: "净资产", data: [7.65, -1.11, -1.92, 0.18, -4.66, 5.36, -0.51, -11.23, 0.1, -10.49, -19.34, 17.23, 0.06], backgroundColor: "#ef4444" },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { title: { display: true, text: "月度收益率对比（%）" } },
+    scales: { y: { title: { display: true, text: "%" } } }
+  }
+});
+
+// ===== 散点图 =====
+new Chart(document.getElementById("scatterChart"), {
+  type: "scatter",
+  data: {
+    datasets: [{
+      label: "月度收益",
+      data: [{"x": 10.47, "y": 5.68, "label": "2025-08"}, {"x": 3.2, "y": -0.73, "label": "2025-09"}, {"x": -0.0, "y": -1.33, "label": "2025-10"}, {"x": -2.46, "y": 0.22, "label": "2025-11"}, {"x": 2.28, "y": -3.33, "label": "2025-12"}, {"x": 1.65, "y": 3.99, "label": "2026-01"}, {"x": 0.09, "y": -0.3, "label": "2026-02"}, {"x": -5.53, "y": -8.15, "label": "2026-03"}, {"x": 8.03, "y": 0.17, "label": "2026-04"}, {"x": 1.76, "y": -7.34, "label": "2026-05"}, {"x": 1.78, "y": -13.13, "label": "2026-06"}, {"x": -7.86, "y": 11.11, "label": "2026-07"}, {"x": 0.8, "y": 0.16, "label": "2026-08"}],
+      backgroundColor: (ctx) => {
+        const d = ctx.raw; return d && d.y > d.x ? "#e74c3c" : "#27ae60";
+      },
+      pointRadius: 6, pointHoverRadius: 9,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      tooltip: { callbacks: { label: (ctx) => `${ctx.raw.label}: 组合${ctx.raw.y}% / 沪深300${ctx.raw.x}%` } },
+      title: { display: true, text: "月度收益散点（红=上涨/跑赢，绿=下跌/跑输）" }
+    },
+    scales: {
+      x: { title: { display: true, text: "沪深300月度收益(%)" } },
+      y: { title: { display: true, text: "组合月度收益(%)" } }
+    }
+  }
+});
+
+// ===== 板块贡献 =====
+new Chart(document.getElementById("sectorContribChart"), {
+  type: "bar",
+  data: {
+    labels: ["\u533b\u7597\u5668\u68b0", "\u7535\u9a71\u7cfb\u7edf", "\uff08\u5df2\u6e05\u4ed3\uff09", "\u94a2\u7ed3\u6784", "\u519b\u5de5", "\u80fd\u6e90", "\u5c0f\u5bb6\u7535", "\u68c0\u6d4b\u670d\u52a1", "\u7eba\u7ec7\u4ee3\u5de5", "\u6c7d\u8f66", "\u98df\u54c1\u52a0\u5de5", "\u5149\u4f0f", "\u6c34\u6ce5", "\u5564\u9152", "\u7535\u529b\u8bbe\u5907"],
+    datasets: [{ label: "区间贡献(%)", data: [0.87, 0.69, 0.26, 0.25, 0.11, 0.09, 0.08, 0.08, -0.09, -0.1, -0.11, -0.11, -0.13, -0.21, -0.35],
+      backgroundColor: ["#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#e74c3c", "#27ae60", "#27ae60", "#27ae60", "#27ae60", "#27ae60", "#27ae60", "#27ae60"] }]
+  },
+  options: {
+    indexAxis: "y", responsive: true, maintainAspectRatio: false,
+    plugins: {
+      title: { display: true, text: "本月板块贡献（月度变化）", font: { size: 14 } },
+      legend: { display: true, position: "top",
+        labels: {
+          generateLabels: function(chart) {
+            return [
+              { text: "  正向贡献（盈利）", fillStyle: "#e74c3c", strokeStyle: "#e74c3c", lineWidth: 0, font: { size: 11 } },
+              { text: "  负向（亏损）",     fillStyle: "#27ae60", strokeStyle: "#27ae60", lineWidth: 0, font: { size: 11 } }
+            ];
+          }
+        }
+      }
+    },
+    scales: { x: { title: { display: true, text: "%" } },
+              y: { ticks: { autoSkip: false, font: { size: 11 } }, afterFit: function(axis){ axis.width = 140; } } }
+  }
+});
+
+// ===== 板块分布 =====
+new Chart(document.getElementById("sectorDistChart"), {
+  type: "bar",
+  data: {
+    labels: ["\u533b\u7597\u5668\u68b0", "\u94a2\u7ed3\u6784", "\u7535\u9a71\u7cfb\u7edf", "\u53a8\u7535", "\u533b\u836f", "\u7535\u529b\u8bbe\u5907", "\u5c0f\u5bb6\u7535", "ETF", "\u6c34\u6ce5", "\u8840\u5236\u54c1", "\u98df\u54c1", "\u519b\u5de5", "\u68c0\u6d4b\u670d\u52a1", "\u5149\u4f0f", "\u52a8\u7269\u4fdd\u5065"],
+    datasets: [{ label: "市值占比(%)", data: [29.6, 12.0, 8.0, 6.1, 5.0, 3.7, 3.0, 2.6, 2.6, 1.7, 1.7, 1.7, 1.6, 1.5, 1.4],
+      backgroundColor: "#8b5cf6" }]
+  },
+  options: {
+    indexAxis: "y", responsive: true, maintainAspectRatio: false,
+    plugins: { title: { display: true, text: "月末板块市值分布TOP15" } },
+    scales: { x: { title: { display: true, text: "%" } },
+              y: { ticks: { autoSkip: false, font: { size: 11 } }, afterFit: function(axis){ axis.width = 140; } } }
+  }
+});
+
+// ===== 市场环境适应性 =====
+new Chart(document.getElementById("regimeChart"), {
+  type: "bar",
+  data: {
+    labels: ["\u5927\u6da8", "\u5c0f\u6da8", "\u5e73\u76d8", "\u5c0f\u8dcc", "\u5927\u8dcc"],
+    datasets: [
+      { label: "组合日均(%)", data: [0.61, 0.34, 0.05, -0.52, -0.97], backgroundColor: "#3b82f6" },
+      { label: "沪深300日均(%)", data: [1.58, 0.62, 0.03, -0.59, -1.84], backgroundColor: "#f59e0b" },
+      { label: "日均超额(%)", data: [-0.97, -0.28, 0.02, 0.07, 0.87], backgroundColor: "#27ae60" },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { title: { display: true, text: "各市场环境下日均收益率（%）" } },
+    scales: { y: { title: { display: true, text: "%" } } }
+  }
+});
+
+// ===== 本月净值走势（审阅月单张，上月底收盘为 0% 基准，四线叠加） =====
+const navData = {"month": "2026-08", "labels": ["07-31", "08-03", "08-04", "08-05", "08-06", "08-07", "08-10", "08-11", "08-12", "08-13", "08-14", "08-17", "08-18", "08-19", "08-20", "08-21", "08-24", "08-25", "08-26", "08-27", "08-28", "08-31"], "port": [0.0, 0.4, -0.74, -0.69, -1.96, -1.58, 0.23, -0.1, 0.41, -0.56, -1.56, -2.5, -2.44, -2.73, -0.48, -1.72, -1.13, 0.24, 0.25, 0.1, 0.48, 0.16], "net": [0.0, 0.59, -1.13, -1.05, -2.95, -2.39, 0.29, -0.21, 0.54, -0.91, -2.4, -3.82, -3.74, -4.18, -0.83, -2.68, -1.82, 0.22, 0.23, -0.0, 0.55, 0.06], "csi": [0.0, -0.98, 0.28, 1.52, 1.38, 2.32, 2.48, 1.65, 2.24, 1.65, 1.69, 3.33, 3.0, 0.01, 0.1, 0.67, -0.55, -0.79, 0.06, 0.92, 0.46, 0.8], "cn6070": [0.0, -1.48, 1.38, 3.77, 4.04, 6.12, 6.3, 5.56, 6.65, 5.93, 6.43, 9.26, 9.0, 4.1, 4.85, 5.51, 3.28, 3.22, 3.81, 5.79, 4.93, 4.93]};
+const navColors = { port: "#3b82f6", net: "#ef4444", csi: "#f59e0b", cn6070: "#10b981" };
+new Chart(document.getElementById("navChart"), {
+  type: "line",
+  data: {
+    labels: navData.labels,
+    datasets: [
+      { label: "总资产（较上月底%）", data: navData.port, borderColor: navColors.port, backgroundColor: navColors.port, borderWidth: 2.5, pointRadius: 0, tension: 0.2 },
+      { label: "净资产（较上月底%）", data: navData.net,  borderColor: navColors.net,  backgroundColor: navColors.net,  borderWidth: 2.5, pointRadius: 0, tension: 0.2 },
+      { label: "沪深300（较上月底%）", data: navData.csi, borderColor: navColors.csi, backgroundColor: navColors.csi, borderWidth: 2, pointRadius: 0, tension: 0.2, borderDash: [6,4] },
+      { label: "偏股基金 CN6070（较上月底%）", data: navData.cn6070, borderColor: navColors.cn6070, backgroundColor: navColors.cn6070, borderWidth: 2, pointRadius: 0, tension: 0.2, borderDash: [3,3] }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    interaction: { mode: "index", intersect: false },
+    plugins: {
+      legend: { position: "top", labels: { boxWidth: 14, font: { size: 13 } } },
+      tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y > 0 ? "+" : ""}${ctx.parsed.y}%` } }
+    },
+    scales: {
+      y: {
+        title: { display: true, text: "较月初涨跌幅 (%)", font: { size: 12 } },
+        ticks: { font: { size: 11 }, callback: (v) => (v > 0 ? "+" : "") + v + "%" },
+        grid: { color: (ctx) => ctx.tick.value === 0 ? "#94a3b8" : "rgba(0,0,0,0.06)" }
+      },
+      x: { ticks: { font: { size: 11 } } }
+    }
+  }
+});
+
+</script>
+</body>
+</html>
